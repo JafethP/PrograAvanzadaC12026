@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Universidad\\Primer Cutrimestre 2026\\Progra Avanzada\\PrograAvanzadaC12026\\WebApplicationAPP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{53718615-EF49-4988-9E2E-6CFA5EED01D3}|WebApplicationAPP\\WebApplicationAPP.csproj|d:\\universidad\\primer cutrimestre 2026\\progra avanzada\\prograavanzadac12026\\webapplicationapp\\webapplicationapp\\models\\calculadora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53718615-EF49-4988-9E2E-6CFA5EED01D3}|WebApplicationAPP\\WebApplicationAPP.csproj|solutionrelative:webapplicationapp\\models\\calculadora.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53718615-EF49-4988-9E2E-6CFA5EED01D3}|WebApplicationAPP\\WebApplicationAPP.csproj|d:\\universidad\\primer cutrimestre 2026\\progra avanzada\\prograavanzadac12026\\webapplicationapp\\webapplicationapp\\controllers\\calculadoracontroller1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53718615-EF49-4988-9E2E-6CFA5EED01D3}|WebApplicationAPP\\WebApplicationAPP.csproj|solutionrelative:webapplicationapp\\controllers\\calculadoracontroller1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53718615-EF49-4988-9E2E-6CFA5EED01D3}|WebApplicationAPP\\WebApplicationAPP.csproj|d:\\universidad\\primer cutrimestre 2026\\progra avanzada\\prograavanzadac12026\\webapplicationapp\\webapplicationapp\\views\\calculadora\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53718615-EF49-4988-9E2E-6CFA5EED01D3}|WebApplicationAPP\\WebApplicationAPP.csproj|solutionrelative:webapplicationapp\\views\\calculadora\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 613,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Universidad\\Primer Cutrimestre 2026\\Progra Avanzada\\PrograAvanzadaC12026\\WebApplicationAPP\\WebApplicationAPP\\Views\\Calculadora\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplicationAPP\\Views\\Calculadora\\Index.cshtml",
+              "ToolTip": "D:\\Universidad\\Primer Cutrimestre 2026\\Progra Avanzada\\PrograAvanzadaC12026\\WebApplicationAPP\\WebApplicationAPP\\Views\\Calculadora\\Index.cshtml",
+              "RelativeToolTip": "WebApplicationAPP\\Views\\Calculadora\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-25T23:33:48.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CalculadoraController1.cs",
+              "DocumentMoniker": "D:\\Universidad\\Primer Cutrimestre 2026\\Progra Avanzada\\PrograAvanzadaC12026\\WebApplicationAPP\\WebApplicationAPP\\Controllers\\CalculadoraController1.cs",
+              "RelativeDocumentMoniker": "WebApplicationAPP\\Controllers\\CalculadoraController1.cs",
+              "ToolTip": "D:\\Universidad\\Primer Cutrimestre 2026\\Progra Avanzada\\PrograAvanzadaC12026\\WebApplicationAPP\\WebApplicationAPP\\Controllers\\CalculadoraController1.cs",
+              "RelativeToolTip": "WebApplicationAPP\\Controllers\\CalculadoraController1.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-25T23:31:01.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Calculadora.cs",
+              "DocumentMoniker": "D:\\Universidad\\Primer Cutrimestre 2026\\Progra Avanzada\\PrograAvanzadaC12026\\WebApplicationAPP\\WebApplicationAPP\\Models\\Calculadora.cs",
+              "RelativeDocumentMoniker": "WebApplicationAPP\\Models\\Calculadora.cs",
+              "ToolTip": "D:\\Universidad\\Primer Cutrimestre 2026\\Progra Avanzada\\PrograAvanzadaC12026\\WebApplicationAPP\\WebApplicationAPP\\Models\\Calculadora.cs",
+              "RelativeToolTip": "WebApplicationAPP\\Models\\Calculadora.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-25T23:15:13.028Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

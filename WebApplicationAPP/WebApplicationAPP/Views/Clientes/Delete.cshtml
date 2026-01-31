@@ -1,0 +1,25 @@
+﻿@model WebApplicationAPP.Models.Clientes
+
+<h1>Eliminar Cliente</h1>
+<p>¿Desea eliminar el cliente?</p>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Id" name="Id" required />
+
+    <label for="Nombre">Nombre:</label>
+    <input type="text" asp-for="Nombre" name="Nombre" required />
+
+    <label for="CorreoElectronico">Correo Electrónico:</label>
+    <input type="email" asp-for="CorreoElectronico" name="CorreoElectronico" required />
+
+    <label for="Telefono">Teléfono:</label>
+    <input type="text" asp-for="Telefono" name="Telefono" required />
+
+    <label for="Direccion">Dirección:</label>
+    <input type="text" asp-for="Direccion" name="Direccion" required />
+
+    <button type="submit" class="btn btn-danger">Si</button>
+    <a asp-action="Index">Cancelar</a>
+
+</form>

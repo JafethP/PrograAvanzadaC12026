@@ -1,0 +1,30 @@
+﻿@model WebApplicationAPP.Models.Producto
+
+<h1>Crear Producto</h1>
+
+<form method="post">
+
+    <label for="Nombre">Nombre:</label>
+    <input type="text" asp-for="Nombre" name="Nombre" required />
+
+    <label for="Descripcion">Descripción:</label>
+    <input type="text" asp-for="Descripcion" name="Descripcion" required />
+
+    <label for="Categoria">Categoría:</label>
+    <input type="text" asp-for="Categoria" name="Categoria" required />
+
+    <label for="Precio">Precio:</label>
+    <input type="number" asp-for="Precio" name="Precio" step="0.01" required />
+
+    <label for="Stock">Stock:</label>
+    <input type="number" asp-for="Stock" name="Stock" required />
+
+    <label for="FechaDeIngreso">Fecha de ingreso:</label>
+    <input type="datetime-local" asp-for="FechaDeIngreso" name="FechaDeIngreso" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
+
+    <label for="Activo">Activo:</label>
+    <input type="checkbox" asp-for="Activo" checked />
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+
+</form>

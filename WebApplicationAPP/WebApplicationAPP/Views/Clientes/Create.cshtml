@@ -1,0 +1,26 @@
+﻿@model WebApplicationAPP.Models.Clientes
+
+<h1>Crear Cliente</h1>
+
+<form method="post">
+
+    <label for="Nombre">Nombre:</label>
+    <input type="text" asp-for="Nombre" name="Nombre" required />
+
+    <label for="CorreoElectronico">Correo Electrónico:</label>
+    <input type="email" asp-for="CorreoElectronico" name="CorreoElectronico" required />
+
+    <label for="Telefono">Teléfono:</label>
+    <input type="text" asp-for="Telefono" name="Telefono" required />
+
+    <label for="Direccion">Dirección:</label>
+    <input type="text" asp-for="Direccion" name="Direccion" required />
+
+    <label for="Activo">Activo:</label>
+    <input type="checkbox" asp-for="Activo" />
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+
+</form>
+
+

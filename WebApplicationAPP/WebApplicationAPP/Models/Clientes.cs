@@ -1,10 +1,15 @@
-﻿namespace WebApplicationAPP.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebApplicationAPP.Models
 {
-    public class Clientes
-    {
+        [Table("Cliente_JafethPoveda")]
+
+        public class Clientes
+        {
+
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string CorreoElectronico { get; set; }
+        public string Correo { get; set; }
 
         public string Telefono { get; set; }
 
@@ -12,7 +17,8 @@
 
         public DateTime FechaRegistro { get; set; }
 
-        public bool Activo { get; set; }=false;
+        public bool Estado { get; set; }=false;
 
-    }
+        }
+
 }

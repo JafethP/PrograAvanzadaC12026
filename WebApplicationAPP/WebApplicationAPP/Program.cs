@@ -1,4 +1,27 @@
+using Microsoft.EntityFrameworkCore;
+using WebApplicationAPP.Bussines;
+using WebApplicationAPP.Data;
+using WebApplicationAPP.Repositories;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("MysqlConnection"),
+        ServerVersion.AutoDetect(
+            builder.Configuration.GetConnectionString("MysqlConnection")
+        )
+    );
+});
+
+builder.Services.AddScoped<IClientesRepository, ClientesRepository>();
+builder.Services.AddScoped<ClientesBussiness>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

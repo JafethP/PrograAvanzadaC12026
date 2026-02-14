@@ -1,52 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplicationAPP.Bussines;
 using WebApplicationAPP.Models;
 
 namespace WebApplicationAPP.Controllers
 {
     public class ClientesController : Controller
     {
-        // declaraciones de variables
-        private static List<Clientes> clientes = new();
+        private readonly ClientesBussiness _clientesBussiness;
 
-        private static int contadorIds = 1;
-
-        private static bool isInitialized = false;
-
-        public ClientesController()
+        public ClientesController(ClientesBussiness clientesBussiness)
         {
-            if (!isInitialized)
-            {
-                clientes.AddRange(new List<Clientes>
-                {
-                    new Clientes
-                    {
-                        Id = contadorIds++,
-                        Nombre = "Juan",
-                        CorreoElectronico = "juan@mail.com",
-                        Telefono = "123456789",
-                        Direccion = "Calle 1",
-                        FechaRegistro = DateTime.Now,
-                        Activo = true
-                    },
-                    new Clientes
-                    {
-                        Id = contadorIds++,
-                        Nombre = "Ana",
-                        CorreoElectronico = "ana@mail.com",
-                        Telefono = "987654321",
-                        Direccion = "Calle 2",
-                        FechaRegistro = DateTime.Now,
-                        Activo = true
-                    }
-                });
-
-                isInitialized = true;
-            }
+            _clientesBussiness = clientesBussiness;
         }
+
 
         public IActionResult Index()
         {
-            return View(clientes);
+            return View(_clientesBussiness.GetAllPersonas());
         }
 
         public IActionResult Create()
@@ -55,102 +25,51 @@ namespace WebApplicationAPP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Clientes cliente)
+        public IActionResult Create(Clientes clientes)
         {
             if (!ModelState.IsValid)
             {
-                return View(cliente);
+                return View(clientes);
             }
-
-            clientes.Add(new Clientes
-            {
-                Id = contadorIds++,
-                Nombre = cliente.Nombre,
-                CorreoElectronico = cliente.CorreoElectronico,
-                Telefono = cliente.Telefono,
-                Direccion = cliente.Direccion,
-                FechaRegistro = cliente.FechaRegistro,
-                Activo = cliente.Activo
-            });
+            _clientesBussiness.AddPersona(clientes);
 
             return RedirectToAction(nameof(Index));
         }
 
-        // Details
-        public IActionResult Details(int id)
-        {
-            var datosConsulta = clientes.FirstOrDefault(c => c.Id == id);
 
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            return View(datosConsulta);
-        }
 
         public IActionResult Edit(int id)
         {
-            var datosConsulta = clientes.FirstOrDefault(c => c.Id == id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            return View(datosConsulta);
+            return View(_clientesBussiness.GetPersonaById(id));
         }
+
+
+        public IActionResult Details(int id)
+        {
+            return View(_clientesBussiness.GetPersonaById(id));
+        }
+
 
         [HttpPost]
-        public IActionResult Edit(Clientes cliente)
+        public IActionResult Edit(Clientes clientes)
         {
-            var datosConsulta = clientes.FirstOrDefault(c => c.Id == cliente.Id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return View(cliente);
-            }
-
-            datosConsulta.Nombre = cliente.Nombre;
-            datosConsulta.CorreoElectronico = cliente.CorreoElectronico;
-            datosConsulta.Telefono = cliente.Telefono;
-            datosConsulta.Direccion = cliente.Direccion;
-            datosConsulta.FechaRegistro = cliente.FechaRegistro;
-            datosConsulta.Activo = cliente.Activo;
-
-            return RedirectToAction(nameof(Index));
+            _clientesBussiness.UpdatePersona(clientes);
+            return RedirectToAction("Index");
         }
+
 
         public IActionResult Delete(int id)
         {
-            var datosConsulta = clientes.FirstOrDefault(c => c.Id == id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            return View(datosConsulta);
+            return View(_clientesBussiness.GetPersonaById(id));
         }
 
-        [HttpPost]
-        public IActionResult Delete(Clientes cliente)
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmar(int id)
         {
-            var datosConsulta = clientes.FirstOrDefault(c => c.Id == cliente.Id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            clientes.Remove(datosConsulta);
-
+            _clientesBussiness.DeletePersona(id);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

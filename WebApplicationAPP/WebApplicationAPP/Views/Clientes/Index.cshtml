@@ -1,37 +1,47 @@
 ﻿@model IEnumerable<WebApplicationAPP.Models.Clientes>
 
+@{
+    ViewBag.Title = "Clientes Personas";
+}
+
 <h1>Lista de Clientes</h1>
 
-<button class="btn btn-secondary">
-    <a asp-action="Create">Registrar Clientes</a>
-</button>
-
+<a class="btn btn-primary"
+   asp-action="Create"
+   role="button">Crear</a>
 <table class="table table-striped">
-    <tr>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Telefono</th>
-        <th>Activo</th>
-        <th>Acciones</th>
-    </tr>
-
-
-    @foreach (var item in Model )
-    {
+    <thead>
         <tr>
-            <td>@item.Id</td>
-            <td>@item.Nombre</td>
-            <td>@item.Telefono</td>
-            <td>@item.Activo</td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
-                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-            </td>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var clientes in Model)
+        {
+            <tr>
+                <td>@clientes.Id</td>
+                <td>@clientes.Nombre</td>
+                <td>@clientes.Estado</td>
+                <td>
 
+                    <a class="btn btn-success"
+                       asp-action="Details" asp-route-id="@clientes.Id"
+                       role="button">Detalles</a>
 
-  
- 
-</table>
+                    <a class="btn btn-warning"
+                       asp-action="Edit" asp-route-id="@clientes.Id"
+                       role="button">Editar</a>
+
+                    <a class="btn btn-danger"
+                       asp-action="Delete" asp-route-id="@clientes.Id"
+                       role="button">Eliminar</a>
+                    @* <a asp-action="Details" asp-route-id="@clientes.Id">Detalles</a> | *@
+                    @* <a asp-action="Edit" asp-route-id="@clientes.Id">Editar</a> | *@
+                    @* <a asp-action="Delete" asp-route-id="@clientes.Id">Eliminar</a> *@
+                </td>
+            </tr>
+        }
+    </tbody>

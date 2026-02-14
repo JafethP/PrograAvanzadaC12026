@@ -1,37 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplicationAPP.Bussines;
 using WebApplicationAPP.Models;
+
 
 namespace WebApplicationAPP.Controllers
 {
     public class ProductoController : Controller
     {
-        //declaraciones de variables
-        private static List<Producto> productos = new();
+        private readonly ProductoBussiness _productoBussiness;
 
-        private static int contadorIds = 1;
-
-        private static bool isInitialized = false;
-
-        public ProductoController()
+        public ProductoController(ProductoBussiness productoBussiness)
         {
-
-            if (!isInitialized)
-            {
-                productos.AddRange(new List<Producto>
-                {
-                    new Producto { Id = contadorIds++, Nombre = "Producto A",Descripcion = "AA", Precio = 10.99m, Stock = 100, Categoria="AAA", FechaDeIngreso= DateTime.Now, Activo= true},
-                    new Producto { Id = contadorIds++, Nombre = "Producto B",Descripcion = "BB", Precio = 50.99m, Stock = 10, Categoria="BBB", FechaDeIngreso= DateTime.Now, Activo= true},
-                    new Producto { Id = contadorIds++, Nombre = "Producto C",Descripcion = "CC", Precio = 7.25m, Stock = 200, Categoria="CCC", FechaDeIngreso= DateTime.Now, Activo= true},
-                });
-
-                isInitialized = true;
-            }
-
+            _productoBussiness = productoBussiness;
         }
+
 
         public IActionResult Index()
         {
-            return View(productos);
+            return View(_productoBussiness.GetAllProducto());
         }
 
         public IActionResult Create()
@@ -40,117 +26,51 @@ namespace WebApplicationAPP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Models.Producto producto)
+        public IActionResult Create(Producto producto)
         {
             if (!ModelState.IsValid)
             {
-                // Aquí se podría agregar la lógica para guardar el producto en una base de datos
-                //return RedirectToAction("Index");
                 return View(producto);
             }
-
-            productos.Add(new Producto
-            {
-                Id = contadorIds++,
-                Nombre = producto.Nombre,
-               Descripcion = producto.Descripcion,
-                Precio = producto.Precio,
-                Stock = producto.Stock,
-                Categoria = producto.Categoria,
-                FechaDeIngreso = producto.FechaDeIngreso,
-                Activo = producto.Activo
-            });
+            _productoBussiness.AddProducto(producto);
 
             return RedirectToAction(nameof(Index));
         }
 
-
-
-        //Details
-        public IActionResult Details(int id)
-        {
-            var datosConsulta = productos.FirstOrDefault(p => p.Id == id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            return View(datosConsulta);
-        }
 
 
         public IActionResult Edit(int id)
         {
-            var datosConsulta = productos.FirstOrDefault(p => p.Id == id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            return View(datosConsulta);
+            return View(_productoBussiness.GetProductoById(id));
         }
+
+
+        public IActionResult Details(int id)
+        {
+            return View(_productoBussiness.GetProductoById(id));
+        }
+
 
         [HttpPost]
         public IActionResult Edit(Producto producto)
         {
-            var datosConsulta = productos.FirstOrDefault(p => p.Id == producto.Id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-
-            if (!ModelState.IsValid)
-            {
-                // Aquí se podría agregar la lógica para guardar el producto en una base de datos
-                //return RedirectToAction("Index");
-                return View(producto);
-            }
-
-            datosConsulta.Nombre = producto.Nombre;
-            datosConsulta.Precio = producto.Precio;
-            datosConsulta.Stock = producto.Stock;
-            datosConsulta.Categoria = producto.Categoria;
-            datosConsulta.Activo = producto.Activo;
-            datosConsulta.FechaDeIngreso = producto.FechaDeIngreso;
-            datosConsulta.Descripcion = producto.Descripcion;
-
-            return RedirectToAction(nameof(Index));
+            _productoBussiness.UpdateProducto(producto);
+            return RedirectToAction("Index");
         }
-
 
 
         public IActionResult Delete(int id)
         {
-            var datosConsulta = productos.FirstOrDefault(p => p.Id == id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            return View(datosConsulta);
+            return View(_productoBussiness.GetProductoById(id));
         }
 
 
-
-        [HttpPost]
-        public IActionResult Delete(Producto producto)
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmar(int id)
         {
-            var datosConsulta = productos.FirstOrDefault(p => p.Id == producto.Id);
-
-            if (datosConsulta == null)
-            {
-                return NotFound();
-            }
-
-            productos.Remove(datosConsulta);
-
+            _productoBussiness.DeleteProducto(id);
             return RedirectToAction(nameof(Index));
         }
-    }
 
+    }
 }

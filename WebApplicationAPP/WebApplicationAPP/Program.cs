@@ -23,6 +23,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IClientesRepository, ClientesRepository>();
 builder.Services.AddScoped<ClientesBussiness>();
 
+builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<ProductoBussiness>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

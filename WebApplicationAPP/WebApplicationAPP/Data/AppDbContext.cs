@@ -5,6 +5,8 @@ namespace WebApplicationAPP.Data
 {
     public class AppDbContext : DbContext
     {
+        internal object _context;
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
@@ -12,6 +14,6 @@ namespace WebApplicationAPP.Data
         public DbSet<Clientes> Cliente_JafethPoveda { get; set; }
         //public DbSet<WebApplicationAPP.Models.Producto> Productos { get; set; }
 
-        public DbSet<Producto> Producto_JafethPoveda { get; set; }
+        public DbSet<Producto> Inventario_JafethPoveda { get; set; }
     }
 }

@@ -20,10 +20,10 @@
     <input type="number" asp-for="Stock" name="Stock" required />
 
     <label for="FechaDeIngreso">Fecha de ingreso:</label>
-    <input type="datetime-local" asp-for="FechaDeIngreso" name="FechaDeIngreso" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
+    <input type="datetime-local" asp-for="FechaRegistro" name="FechaDeIngreso" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
 
     <label for="Activo">Activo:</label>
-    <input type="checkbox" asp-for="Activo" checked />
+    <input type="checkbox" asp-for="Estado" checked />
 
     <button type="submit" class="btn btn-primary">Crear</button>
 

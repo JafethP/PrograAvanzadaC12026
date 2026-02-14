@@ -1,5 +1,9 @@
-﻿namespace WebApplicationAPP.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebApplicationAPP.Models
 {
+
+    [Table("Inventario_JafethPoveda")]
     public class Producto
     {
         public int Id { get; set; }
@@ -8,8 +12,8 @@
         public decimal Precio { get; set; }
         public int Stock { get; set; }
         public string Categoria { get; set; }
-        public DateTime FechaDeIngreso { get; set; }
-        public bool Activo { get; set; } = false;
+        public DateTime FechaRegistro { get; set; }
+        public bool Estado { get; set; } = false;
 
     }
 }
